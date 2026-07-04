@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JB Ediciones Digitales | Plataforma Editable</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo" id="brandLogo">JB</div>
+      <div>
+        <b id="brandName">JB Ediciones Digitales</b>
+        <span id="brandSubtitle">Plataforma editable de e-books con IA</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#ebooks">E-books</a>
+      <a href="#planes">Planes</a>
+      <a href="#ia">IA Chef</a>
+      <a href="#admin">Panel</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="heroText">
+      <span class="pill" id="heroPill">Más de 200 recetas + bonus exclusivos</span>
+      <h1 id="heroTitle">Tu plataforma premium de recetas digitales</h1>
+      <p id="heroText">Accedé a e-books profesionales, contenido exclusivo, recursos para emprender y un asistente inteligente de cocina.</p>
+      <div class="actions">
+        <a class="btn primary" href="#planes">Ver membresía</a>
+        <a class="btn white" href="#ebooks">Explorar e-books</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><b id="stat1">4</b><span>E-books principales</span></div>
+    <div><b id="stat2">200+</b><span>Recetas digitales</span></div>
+    <div><b id="stat3">24/7</b><span>IA Chef JB</span></div>
+    <div><b id="stat4">100%</b><span>Producto digital</span></div>
+  </section>
+
+  <h2 id="ebooks">Biblioteca digital</h2>
+  <section class="grid" id="ebookGrid"></section>
+
+  <h2 id="planes">Planes y pagos</h2>
+  <section class="grid plans" id="plansGrid"></section>
+
+  <h2 id="ia">IA Chef JB</h2>
+  <section class="ai">
+    <h3>Asistente inteligente de cocina</h3>
+    <p>Esta versión trae IA simulada. Luego se conecta a OpenAI desde Cloudflare Workers.</p>
+    <div class="chat" id="chat">
+      <div class="msg bot">Hola, soy IA Chef JB. Puedo ayudarte con recetas, menú semanal, costos, porciones y consejos para emprender.</div>
+    </div>
+    <div class="chatrow">
+      <input id="question" placeholder="Ej: Tengo pollo y arroz, ¿qué preparo?">
+      <button onclick="askAI()">Enviar</button>
+    </div>
+  </section>
+
+  <h2 id="admin">Panel de administración</h2>
+  <section class="admin">
+    <div class="card">
+      <h3>Editar contenido principal</h3>
+      <label>Nombre de marca</label>
+      <input id="editBrandName">
+      <label>Subtítulo</label>
+      <input id="editBrandSubtitle">
+      <label>Título principal</label>
+      <input id="editHeroTitle">
+      <label>Texto principal</label>
+      <textarea id="editHeroText"></textarea>
+      <label>Frase destacada</label>
+      <input id="editHeroPill">
+      <label>Imagen principal online</label>
+      <input id="editHeroImage" placeholder="https://...jpg">
+      <button onclick="saveMain()">Guardar cambios</button>
+    </div>
+
+    <div class="card">
+      <h3>Editar links de pago</h3>
+      <label>Shopify</label>
+      <input id="editShopify">
+      <label>Mercado Pago</label>
+      <input id="editMercadoPago">
+      <label>Hotmart</label>
+      <input id="editHotmart">
+      <button onclick="savePayments()">Guardar pagos</button>
+      <p class="note">Los cambios quedan guardados en este navegador. Para publicarlos definitivamente, se actualiza el archivo config.js.</p>
+    </div>
+
+    <div class="card wide">
+      <h3>Editar e-books</h3>
+      <div id="ebookEditor"></div>
+      <button onclick="saveEbooks()">Guardar e-books</button>
+    </div>
+
+    <div class="card wide">
+      <h3>Exportar configuración</h3>
+      <p>Cuando termines de editar, copiá esta configuración para crear una nueva versión definitiva del sitio.</p>
+      <button onclick="exportConfig()">Generar configuración</button>
+      <textarea id="exportBox" placeholder="Acá aparecerá la configuración actualizada..."></textarea>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 JB Ediciones Digitales · Plataforma digital editable</footer>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
